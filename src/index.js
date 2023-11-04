@@ -11,9 +11,6 @@ const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-store.subscribe(() => {
-  console.log("current state", store.getState());
-});
 
 ReactDOM.createRoot(document.querySelector("#root")).render(
   <React.StrictMode>

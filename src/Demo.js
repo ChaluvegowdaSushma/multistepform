@@ -32,8 +32,7 @@ export default function MultistepForm(props) {
     }
     return true;
   };
-  const onClickNext = (activeStep, props) => {
-    console.log(props.personDetails);
+  const onClickNext = (activeStep) => {
     setActiveStep(activeStep + 1);
   };
   const onClickPrev = (activeStep) => {
@@ -70,7 +69,7 @@ export default function MultistepForm(props) {
               <Button
                 variant="contained"
                 onClick={() => {
-                  onClickNext(activeStep, props);
+                  onClickNext(activeStep);
                 }}
               >
                 Next
@@ -83,7 +82,7 @@ export default function MultistepForm(props) {
                 variant="contained"
                 disabled
                 onClick={() => {
-                  onClickNext(activeStep, props);
+                  onClickNext(activeStep);
                 }}
               >
                 Next

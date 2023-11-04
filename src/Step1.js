@@ -23,7 +23,6 @@ export default function Step1({ props }) {
         required
         value={props.personDetails.firstName}
         onChange={(e) => {
-          console.log(e.target.value);
           props.updateFirstName(e.target.value);
         }}
       />
@@ -34,7 +33,6 @@ export default function Step1({ props }) {
         required
         value={props.personDetails.lastName}
         onChange={(e) => {
-          console.log(e.target.value);
           props.updateLastName(e.target.value);
         }}
       />
