@@ -20,7 +20,17 @@ export default function Step1({ props }) {
         id="outlined-basic"
         inputProps={{ style: { textAlign: "center" } }}
         label="First Name"
+        error={
+          props.personDetails.firstName === "" &&
+          props.personDetails.isnextzeroclicked
+        }
         required
+        helperText={
+          props.personDetails.firstName === "" &&
+          props.personDetails.isnextzeroclicked
+            ? "First name should not be empty"
+            : ""
+        }
         value={props.personDetails.firstName}
         onChange={(e) => {
           props.updateFirstName(e.target.value);
@@ -30,7 +40,17 @@ export default function Step1({ props }) {
         id="filled-basic"
         inputProps={{ style: { textAlign: "center" } }}
         label="Last Name"
+        error={
+          props.personDetails.lastName === "" &&
+          props.personDetails.isnextzeroclicked
+        }
         required
+        helperText={
+          props.personDetails.lastName === "" &&
+          props.personDetails.isnextzeroclicked
+            ? "Last name should not be empty"
+            : ""
+        }
         value={props.personDetails.lastName}
         onChange={(e) => {
           props.updateLastName(e.target.value);

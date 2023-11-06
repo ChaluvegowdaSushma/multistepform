@@ -5,7 +5,9 @@ import {
   updateLastName,
   updateEmail,
   updateNumber,
-  updateInfo
+  updateInfo,
+  updatenextzero,
+  updatenextone,
 } from "./actions";
 
 const mapStateToProps = (state) => {
@@ -20,6 +22,8 @@ const mapDispatchToProps = (dispatch) => {
     updateEmail: (value) => dispatch(updateEmail(value)),
     updateNumber: (value) => dispatch(updateNumber(value)),
     updateInfo: (value) => dispatch(updateInfo(value)),
+    updatenextzero: (value) => dispatch(updatenextzero(value)),
+    updatenextone: (value) => dispatch(updatenextone(value)),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Demo);

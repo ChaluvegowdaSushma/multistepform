@@ -15,25 +15,22 @@ const steps = ["Basic Details*", "Contact Details*", "Additional Info", "End"];
 export default function MultistepForm(props) {
   const [activeStep, setActiveStep] = useState(0);
 
-  const enable = (activeStep, props) => {
+  const onClickNext = (activeStep, props) => {
     if (
       activeStep == 0 &&
       (props.personDetails.firstName == "" ||
         props.personDetails.lastName == "")
     ) {
-      return false;
-    }
-    if (
+      props.updatenextzero(true);
+    } else if (
       activeStep == 1 &&
       (!/\S+@\S+\.\S+/.test(props.personDetails.email) ||
         !props.personDetails.phoneNumber.match("[0-9]{10}"))
     ) {
-      return false;
+      props.updatenextone(true);
+    } else {
+      setActiveStep(activeStep + 1);
     }
-    return true;
-  };
-  const onClickNext = (activeStep) => {
-    setActiveStep(activeStep + 1);
   };
   const onClickPrev = (activeStep) => {
     setActiveStep(activeStep - 1);
@@ -63,32 +60,18 @@ export default function MultistepForm(props) {
           </Button>
         </Box>
       )}
-      {enable(activeStep, props)
-        ? activeStep != 3 && (
-            <Box minHeight="10vh" textAlign="center">
-              <Button
-                variant="contained"
-                onClick={() => {
-                  onClickNext(activeStep);
-                }}
-              >
-                Next
-              </Button>
-            </Box>
-          )
-        : activeStep != 3 && (
-            <Box minHeight="10vh" textAlign="center">
-              <Button
-                variant="contained"
-                disabled
-                onClick={() => {
-                  onClickNext(activeStep);
-                }}
-              >
-                Next
-              </Button>
-            </Box>
-          )}
+      {activeStep != 3 && (
+        <Box minHeight="10vh" textAlign="center">
+          <Button
+            variant="contained"
+            onClick={() => {
+              onClickNext(activeStep, props);
+            }}
+          >
+            Next
+          </Button>
+        </Box>
+      )}
     </Box>
   );
 }

@@ -28,3 +28,15 @@ export function updateInfo(info) {
     info,
   };
 }
+export function updatenextzero(isnextzeroclicked) {
+  return {
+    type: "NEXTZEROCHECK",
+    isnextzeroclicked,
+  };
+}
+export function updatenextone(isnextoneclicked) {
+  return {
+    type: "NEXTONECHECK",
+    isnextoneclicked,
+  };
+}
